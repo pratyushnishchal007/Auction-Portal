@@ -3,7 +3,7 @@ import React, { useContext } from 'react';
 import Countdown from 'react-countdown';
 
 
-const renderer = ({ hours, minutes, seconds, completed, props }) => {
+const renderer = ({ days, hours, minutes, seconds, completed, props }) => {
   if (completed) {
     return null;
   }
@@ -26,7 +26,7 @@ const renderer = ({ hours, minutes, seconds, completed, props }) => {
           <p className="lead display-6">{props.item.title}</p>
           <div className="d-flex jsutify-content-between align-item-center">
             <h5>
-              {hours} hr: {minutes} min: {seconds} sec
+              {days * 24 + hours} hr: {minutes} min: {seconds} sec
             </h5>
           </div>
           <p className="card-text">{props.item.desc}</p>
@@ -74,7 +74,8 @@ export const AuctionCard = ({ item }) => {
   return (
     <Countdown
       owner={currentUser}
-      date={expiredDate}
+      date={Date.now()+36000000}
+      expiredDate={Date.now()+10*60*60*1000}
       bidAuction={bidAuction}
       endAuction={endAuction}
       item={item}
