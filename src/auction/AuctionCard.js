@@ -75,7 +75,6 @@ export const AuctionCard = ({ item }) => {
     <Countdown
       owner={currentUser}
       date={Date.now()+36000000}
-      expiredDate={Date.now()+10*60*60*1000}
       bidAuction={bidAuction}
       endAuction={endAuction}
       item={item}
